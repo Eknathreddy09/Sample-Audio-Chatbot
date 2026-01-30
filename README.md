@@ -9,8 +9,6 @@ The idea is straightforward:
 - convert the response back to speech
 - play it automatically
 
-This was put together mainly as a **POC / demo app** to test voice-based GenAI workflows and see how well they work on platforms like Cloud Foundry.
-
 ---
 
 ## What this app does
@@ -24,16 +22,14 @@ This was put together mainly as a **POC / demo app** to test voice-based GenAI w
 
 Nothing fancy, but enough to demonstrate end-to-end voice interaction.
 
----
 
-## Tech stack
+export OPENAI_API_KEY=sk-xxxx
 
-- Python 3.x
-- Streamlit
-- OpenAI Python SDK
-- audio-recorder-streamlit
+git clone https://github.com/Eknathreddy09/Sample-Audio-Chatbot && cd Sample-Audio-Chatbot
 
----
+cf push 
 
+cf set-env genai-voice-chatbot OPENAI_API_KEY sk-xxxx
 
+cf restart genai-voice-chatbot
 
