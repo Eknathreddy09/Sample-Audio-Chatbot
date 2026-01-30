@@ -1,0 +1,8 @@
+applications:
+- name: genai-voice-chatbot
+  memory: 2G
+  disk_quota: 2G
+  instances: 1
+  buildpacks:
+    - python_buildpack
+  command: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
