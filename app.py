@@ -14,7 +14,7 @@ def main():
             {"role": "assistant", "content": "Hi! How may I assist you today?"}
         ]
 
-    st.title("GenAI Conversational Voice Chatbot 🤖")
+    st.title("A Simple Audio Chatbot :) ")
 
     # Footer mic
     footer_container = st.container()
