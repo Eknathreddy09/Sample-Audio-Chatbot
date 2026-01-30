@@ -4,16 +4,10 @@ import tempfile
 import streamlit as st
 from openai import OpenAI
 
-# ----------------------------------
-# OpenAI client (API key via env var)
-# ----------------------------------
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY")
 )
 
-# ----------------------------------
-# Speech → Text (Whisper)
-# ----------------------------------
 def speech_to_text(audio_file_path: str) -> str:
     try:
         with open(audio_file_path, "rb") as audio_file:
@@ -28,10 +22,6 @@ def speech_to_text(audio_file_path: str) -> str:
         st.error(f"Speech-to-text failed: {e}")
         return ""
 
-
-# ----------------------------------
-# Text → Speech (TTS)
-# ----------------------------------
 def text_to_speech(text: str) -> str:
     try:
         # Create temp audio file
@@ -43,8 +33,7 @@ def text_to_speech(text: str) -> str:
             voice="alloy",
             input=text
         )
-
-        # ✅ Correct way to write audio
+        
         audio_bytes = response.read()
         tmp_audio.write(audio_bytes)
         tmp_audio.close()
@@ -55,10 +44,6 @@ def text_to_speech(text: str) -> str:
         st.error(f"Text-to-speech failed: {e}")
         return ""
 
-
-# ----------------------------------
-# Autoplay audio in Streamlit
-# ----------------------------------
 def autoplay_audio(audio_path: str):
     if not audio_path:
         return
@@ -75,4 +60,3 @@ def autoplay_audio(audio_path: str):
     """
 
     st.markdown(audio_html, unsafe_allow_html=True)
-
