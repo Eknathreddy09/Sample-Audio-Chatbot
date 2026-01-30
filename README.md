@@ -23,13 +23,11 @@ The idea is straightforward:
 Nothing fancy, but enough to demonstrate end-to-end voice interaction.
 
 
-export OPENAI_API_KEY=sk-xxxx
-
 git clone https://github.com/Eknathreddy09/Sample-Audio-Chatbot && cd Sample-Audio-Chatbot
 
 cf push 
 
 cf set-env genai-voice-chatbot OPENAI_API_KEY sk-xxxx
 
-cf restart genai-voice-chatbot
+cf restage genai-voice-chatbot
 
